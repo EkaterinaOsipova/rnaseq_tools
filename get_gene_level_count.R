@@ -22,3 +22,4 @@ output = args[4]
 #count_data = tximport(files=quant_file, type=analysis_type, tx2gene=genes_dict, countsFromAbundance="lengthScaledTPM")
 count_data = tximport(files=quant_file, type=analysis_type, tx2gene=genes_dict)
 write.table(count_data$counts, sep='\t', output, col.names=FALSE, quote=FALSE)
+

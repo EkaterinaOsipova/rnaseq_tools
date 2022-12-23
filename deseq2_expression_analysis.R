@@ -68,6 +68,7 @@ counts_table_round <- df_merged %>% mutate_if(is.numeric, round)
 ## Write ALL count ALL gene table into a file
 # all_lib_all_gene_file = 'ALL_lib.ALL_gene_table.tsv'
 # write.table(counts_table_round, sep="\t", all_lib_all_gene_file, quote=FALSE)
+# quit(status=0)
 
 ## Load sample info
 meta_data = read.csv(meta_file, header=TRUE, sep='\t')
@@ -97,6 +98,8 @@ run_deseq_analysis = function(meta, counts, sources, sp_ref) {
 ## Run DESeq2 analysis
 lib_type = subset(meta_data, meta_data$type == t & (meta_data$species == sp_test | meta_data$species == sp_ref))$lib
 sources_type = c('gene', as.vector(lib_type))
+
+
 analysis_res_list = run_deseq_analysis(meta_data, counts_table_round, sources_type, sp_ref)
 
 res_ordered = analysis_res_list$res
