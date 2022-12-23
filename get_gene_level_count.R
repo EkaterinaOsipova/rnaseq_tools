@@ -9,7 +9,7 @@ quant_file = args[1]
 
 # load table of transc \t gene correspondence
 genes_file = args[2]
-genes_dict = read.csv(genes_file, sep='\t')
+genes_dict = read.csv(genes_file, header=FALSE, sep='\t')
 
 # provide type of analysis
 analysis_type=args[3]
